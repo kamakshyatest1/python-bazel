@@ -1,6 +1,6 @@
 import requests 
 import urllib3 
-import certifi
+from certifi import where
 
 def get_external_ip():
     response = requests.get("https://api.ipify.org?format=json")
@@ -14,7 +14,7 @@ def main():
 def getList(listUrl):
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',  # Force certificate check.
-        ca_certs=certifi.where(),  # Path to the Certifi bundle.
+        ca_certs=where(),  # Path to the Certifi bundle.
     )
 
     data = http.request('GET', listUrl, timeout=10).data
