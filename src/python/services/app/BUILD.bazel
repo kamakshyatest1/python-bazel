@@ -7,5 +7,7 @@ py_binary(
     main = "app.py",
     deps = [
         requirement("requests"),
+        requirement("certifi"),
+        requirement("urllib3"),
     ],
 )
